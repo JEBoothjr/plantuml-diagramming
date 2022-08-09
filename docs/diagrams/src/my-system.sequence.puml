@@ -1,0 +1,12 @@
+@startuml
+!include http://host.docker.internal:8000/sequence_lib.puml
+
+title My System
+header Our Fabulous Product
+footer Last Updated: 8/11/2022
+
+Generic(MyGenericService1, "EventBridge")
+Generic(MyGenericService2, "EventBridge", "my-custom-rule")
+Generic(MyGenericService3, "EventBridge", "my-custom-rule", "[0 9 1 * ? *]")
+
+@enduml

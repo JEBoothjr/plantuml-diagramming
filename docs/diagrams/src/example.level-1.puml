@@ -1,0 +1,18 @@
+@startuml
+!include http://host.docker.internal:8000/level_lib.puml
+
+title "Example - Level 1"
+footer Last Updated: 8/11/2022
+
+EventBridge(EventBridge, "example-rule", "[0 9 1 * ? *]")
+StepFunction(StepFunction, "example-step-function")
+Lambda(Lambda, "[3]")
+Database(Database, "Database")
+Cloud(Slack, "Slack")
+
+EventBridge -down-> StepFunction
+StepFunction -down-> Lambda
+Lambda -down-> Database
+Lambda -down-> Slack
+
+@enduml

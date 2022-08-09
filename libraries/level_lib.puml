@@ -1,0 +1,170 @@
+@startuml level-lib
+
+skinparam defaultTextAlignment center
+
+!$version = "v1.0.0"
+!$last_updated = "8/11/2022"
+
+' CHANGELOG
+' v1.0.0
+' 8/11/2022
+
+!function $formatListPairs($items, $size=15)
+    !$output = ""
+    !foreach $item in $items.list
+        !$output = $output + "<font:monospaced><plain><size:" + $size + ">" + $item.name + " " + $item.value + "</size></plain></font>\n"
+    !endfor
+    !$output = %substr($output, 0, %strlen($output)-2)
+    !return $output
+!endfunction
+
+!function $formatDelimited($str, $size=10)
+    ' This is a temporary catch because %splitstr has not been
+    ' released yet as of v1.2022.1
+    !return $str
+
+    !$output = ""
+    !$list = %splitstr($str, "|")
+    
+    !foreach $item in $list
+        !$output = $output + "<font:monospaced><plain><size:" + $size + ">" + $item + "</size></plain></font>\n"
+    !endfor
+    !$output = %substr($output, 0, %strlen($output)-2)
+
+    !return $output
+!endfunction
+
+' Actor
+!procedure Actor($id, $type)
+    actor "<size:18><b>$type</b></size>" as $id
+!endprocedure
+
+' AvailabilityZones (Level-only)
+!procedure AvailabilityZones($id, $azs)
+    frame "<size:15><b>Availability Zones</b></size>\n$formatListPairs($azs)" as $id
+!endprocedure
+
+' Cloud
+!procedure Cloud($id, $type, $label, $meta)
+    cloud "<size:18><b>$type</b></size>\n----\n<font:monospaced><size:15>$label</size></font>\n$formatDelimited($meta)" as $id
+!endprocedure
+!procedure Cloud($id, $type, $label)
+    cloud "<size:18><b>$type</b></size>\n----\n<font:monospaced><size:15>$label</size></font>" as $id
+!endprocedure
+!procedure Cloud($id, $type)
+    cloud "<size:18><b>$type</b></size>" as $id
+!endprocedure
+
+' Database
+!procedure Database($id, $type, $label, $meta)
+    database "<size:18><b>$type</b></size>\n----\n<font:monospaced><size:15>$label</size></font>\n$formatDelimited($meta)" as $id
+!endprocedure
+!procedure Database($id, $type, $label)
+    database "<size:18><b>$type</b></size>\n----\n<font:monospaced><size:15>$label</size></font>" as $id
+!endprocedure
+!procedure Database($id, $type="Database")
+    database "<size:18><b>$type</b></size>" as $id
+!endprocedure
+
+' ECS
+!procedure ECS($id, $label, $meta)
+    Generic($id, "ECS", $label, $meta)
+!endprocedure
+!procedure ECS($id, $label)
+    Generic($id, "ECS", $label)
+!endprocedure
+!procedure ECS($id)
+    Generic($id, "ECS")
+!endprocedure
+
+' EventBridge
+!procedure EventBridge($id, $label, $meta)
+    Generic($id, "EventBridge", $label, $meta)
+!endprocedure
+!procedure EventBridge($id, $label)
+    Generic($id, "EventBridge", $label)
+!endprocedure
+!procedure EventBridge($id)
+    Generic($id, "EventBridge")
+!endprocedure
+
+' Generic
+!procedure Generic($id, $type, $label, $meta)
+    rectangle "<size:18><b>$type</b></size>\n----\n<font:monospaced><size:15>$label</size></font>\n$formatDelimited($meta)" as $id
+!endprocedure
+!procedure Generic($id, $type, $label)
+    rectangle "<size:18><b>$type</b></size>\n----\n<font:monospaced><size:15>$label</size></font>" as $id
+!endprocedure
+!procedure Generic($id, $type)
+    rectangle "<size:18><b>$type</b></size>" as $id
+!endprocedure
+
+' Lambda
+!procedure Lambda($id, $label, $meta)
+    Generic($id, "Lambda", $label, $meta)
+!endprocedure
+!procedure Lambda($id, $label)
+    Generic($id, "Lambda", $label)
+!endprocedure
+!procedure Lambda($id)
+    Generic($id, "Lambda")
+!endprocedure
+
+' Peering Connection (Level-only)
+!procedure Peering($id, $label)
+    storage "<size:18><b>Peering</b></size>\n----\n<font:monospaced><plain><size:15>$label</size></plain></font>" as $id
+!endprocedure
+
+' S3
+!procedure S3($id, $label, $meta)
+    Generic($id, "S3", $label, $meta)
+!endprocedure
+!procedure S3($id, $label)
+    Generic($id, "S3", $label)
+!endprocedure
+!procedure S3($id)
+    Generic($id, "S3")
+!endprocedure
+
+' Security Group (Level-only)
+!procedure SecurityGroup($id, $label)
+    frame "<size:18><b>Security Group</b></size>\n----\n<font:monospaced><size:15>$label</size></font>" as $id
+!endprocedure
+!procedure SecurityGroup($id)
+    frame "<size:18><b>Security Group</b></size>" as $id
+!endprocedure
+
+' SSM
+!procedure SSM($id, $label, $meta)
+    Generic($id, "SSM", $label, $meta)
+!endprocedure
+!procedure SSM($id, $label)
+    Generic($id, "SSM", $label)
+!endprocedure
+!procedure SSM($id)
+    Generic($id, "SSM")
+!endprocedure
+
+' StepFunction
+!procedure StepFunction($id, $label, $meta)
+    Generic($id, "StepFunction", $label, $meta)
+!endprocedure
+!procedure StepFunction($id, $label)
+    Generic($id, "StepFunction", $label)
+!endprocedure
+!procedure StepFunction($id)
+    Generic($id, "StepFunction")
+!endprocedure
+
+' VPC - $meta should be a cidr block (Level-only)
+!procedure VPC($id, $label, $meta)
+    frame "<size:18><b>VPC</b></size>\n----\n<font:monospaced><size:15>$label</size></font>\n$formatDelimited($meta)" as $id
+!endprocedure
+!procedure VPC($id, $label)
+    frame "<size:18><b>VPC</b></size>\n----\n<font:monospaced><size:15>$label</size></font>" as $id
+!endprocedure
+!procedure VPC($id)
+    frame "<size:18><b>VPC</b></size>" as $id
+!endprocedure
+
+@enduml

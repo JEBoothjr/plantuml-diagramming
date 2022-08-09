@@ -1,0 +1,258 @@
+// Version 1.0.0
+// 8/1/2022
+
+// CHANGELOG
+// v1.0.0
+// 8/1/2022
+// Initial Version
+{
+    "Architecture Level Diagram": {
+        "prefix": [
+            "adr-level-diagram"
+        ],
+        "body": [
+            "@startuml",
+            "!include http://host.docker.internal:8000/level_lib.puml",
+            "",
+            "title \"$1\"",
+            "header \"$2\"",
+            "footer $CURRENT_MONTH/$CURRENT_DATE/$CURRENT_YEAR \\nLibrary: \\$version \\nPlantUML: %version()",
+            "",
+            "$3",
+            "",
+            "@enduml"
+        ],
+        "description": "Level Diagram"
+	},
+	"Architecture Sequence Diagram": {
+        "prefix": [
+            "adr-sequence-diagram"
+        ],
+        "body": [
+            "@startuml",
+            "!include http://host.docker.internal:8000/sequence_lib.puml",
+            "",
+			"title \"$1\"",
+            "header \"$2\"",
+            "footer $CURRENT_MONTH/$CURRENT_DATE/$CURRENT_YEAR \\nLibrary: \\$version \\nPlantUML: %version()",
+            "",
+            "$3",
+            "",
+            "@enduml"
+        ],
+        "description": "Sequence Diagram"
+	},
+	"Architecture Data Diagram": {
+        "prefix": [
+            "adr-data-diagram"
+        ],
+        "body": [
+            "@startuml",
+            "!include http://host.docker.internal:8000/data_lib.puml",
+            "",
+            "title \"$1\"",
+            "header \"$2\"",
+            "footer $CURRENT_MONTH/$CURRENT_DATE/$CURRENT_YEAR \\nLibrary: \\$version \\nPlantUML: %version()",
+            "",
+            "$3",
+            "",
+            "@enduml"
+        ],
+        "description": "Data Diagram"
+	},
+	"Actor": {
+        "prefix": [
+            "adr-actor"
+        ],
+        "body": [
+            "Actor(User, \"$0\")"
+        ],
+        "description": "Diagram Actor"
+    },
+	"AvailabilityZones (Level-only)": {
+        "prefix": [
+            "adr-availability-zones"
+        ],
+        "body": [
+            "AvailabilityZones(AZs, \"$0\")"
+        ],
+        "description": "AvailabilityZones (Level-only)"
+    },
+	"Cloud": {
+        "prefix": [
+            "adr-cloud"
+        ],
+        "body": [
+            "Cloud(Cloud, \"$0\")"
+        ],
+        "description": "Cloud"
+    },
+	"Collection (Data-only)": {
+        "prefix": [
+            "adr-collection"
+        ],
+        "body": [
+            "Collection( $1 ) {",
+            "$2",
+            "}"
+        ],
+        "description": "Collection (Data-only)"
+    },
+	"Column (Data-only)": {
+        "prefix": [
+            "adr-column"
+        ],
+        "body": [
+            "Column( $1, $2 )"
+        ],
+        "description": "Column (Data-only)"
+    },
+	"Database": {
+        "prefix": [
+            "adr-database"
+        ],
+        "body": [
+            "Database(Database, \"$0\")"
+        ],
+        "description": "Database"
+    },
+	"ECS": {
+        "prefix": [
+            "adr-ecs"
+        ],
+        "body": [
+            "ECS(ECS, \"$0\")"
+        ],
+        "description": "ECS"
+    },
+	"EventBridge": {
+        "prefix": [
+            "adr-eventbridge"
+        ],
+        "body": [
+            "EventBridge(EventBridge, \"$0\")"
+        ],
+        "description": "EventBridge"
+    },
+	"Field (Data-only)": {
+        "prefix": [
+            "adr-field"
+        ],
+        "body": [
+            "Field( $1, $2 )"
+        ],
+        "description": "Field (Data-only)"
+    },
+	"Foreign Key (Data-only)": {
+        "prefix": [
+            "adr-foreign-key"
+        ],
+        "body": [
+            "ForeignKey( $1, $2 )"
+        ],
+        "description": "Foreign Key (Data-only)"
+    },
+	"Generic": {
+        "prefix": [
+            "adr-generic"
+        ],
+        "body": [
+            "Generic(Generic, \"$0\")"
+        ],
+        "description": "Generic"
+    },
+	"Lambda": {
+        "prefix": [
+            "adr-lambda"
+        ],
+        "body": [
+            "Lambda(Lambda, \"$0\")"
+        ],
+        "description": "Lambda"
+    },
+	"Peering Connection (Level-only)": {
+        "prefix": [
+            "adr-peering-connection"
+        ],
+        "body": [
+            "Peering(Peering, \"$0\")"
+        ],
+        "description": "Peering Connection (Level-only)"
+    },
+	"Primary Key (Data-only)": {
+        "prefix": [
+            "adr-primary-key"
+        ],
+        "body": [
+            "PrimaryKey( $1, $2 )"
+        ],
+        "description": "Primary Key (Data-only)"
+    },
+	"S3": {
+        "prefix": [
+            "adr-s3"
+        ],
+        "body": [
+            "S3(S3, \"$0\")"
+        ],
+        "description": "S3"
+    },
+	"SecurityGroup (Level-only)": {
+        "prefix": [
+            "adr-security-group"
+        ],
+        "body": [
+            "SecurityGroup(SecurityGroup, \"$0\")"
+        ],
+        "description": "SecurityGroup (Level-only)"
+    },
+	"SSM": {
+        "prefix": [
+            "adr-ssm"
+        ],
+        "body": [
+            "SSM(SSM, \"$0\")"
+        ],
+        "description": "SSM"
+    },
+	"StepFunction": {
+        "prefix": [
+            "adr-stepfunction"
+        ],
+        "body": [
+            "StepFunction(StepFunction, \"$0\")"
+        ],
+        "description": "StepFunction"
+    },
+	"Table (Data-only)": {
+        "prefix": [
+            "adr-table"
+        ],
+        "body": [
+            "Table( $1 ) {",
+            "$2",
+            "}"
+        ],
+        "description": "Table (Data-only)"
+    },
+	"VPC (Level-only)": {
+        "prefix": [
+            "adr-vpc"
+        ],
+        "body": [
+            "VPC(VPC, \"$0\")"
+        ],
+        "description": "VPC (Level-only)"
+    },
+	"Embed Diagram": {
+        "prefix": [
+            "adr-embed"
+        ],
+        "body": [
+            "<p align=\"center\">",
+            "  <img src=\"./architecture/diagrams/out/$0\"/>",
+            "</p>"
+        ],
+        "description": "Embed a generated diagram in README"
+    }
+}

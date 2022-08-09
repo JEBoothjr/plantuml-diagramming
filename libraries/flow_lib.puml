@@ -1,0 +1,12 @@
+@startuml flow-lib
+
+!$version = "v1.0.0"
+!$last_updated = "8/11/2022"
+
+' CHANGELOG
+' v1.0.0
+' 8/11/2022
+
+
+
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+!include http://host.docker.internal:8000/sequence_lib.puml
+
+title "Example If/Else - Sequence"
+footer Last Updated: 8/11/2022
+
+Actor(LoginPage, "Login Page")
+Generic(ApplicationPage, "Application Page")
+Lambda(LoginLambda, "login")
+ 
+LoginPage -> LoginLambda : POST /api/login
+ 
+alt success
+   LoginPage <- LoginLambda : 302 /application
+   LoginPage -> ApplicationPage
+else error
+   LoginPage <- LoginLambda : 401
+end
+ 
+@enduml

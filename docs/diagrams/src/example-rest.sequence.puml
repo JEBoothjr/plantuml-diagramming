@@ -1,0 +1,19 @@
+@startuml
+!include http://host.docker.internal:8000/sequence_lib.puml
+
+title "Example REST - Sequence"
+footer Last Updated: 8/11/2022
+
+Actor(User, "User")
+Generic(RESTService, "REST Service")
+ 
+User -> RESTService : GET /users :: { isActive: true }
+User <- RESTService : [ users ]
+User -> RESTService : GET /companies?isActive=true
+User <- RESTService : [ companies ]
+User -> RESTService : PUT /companies/{companyId}
+User <- RESTService : { company }
+User -> RESTService : DELETE /companies/{companyId}
+User <- RESTService : 200
+ 
+@enduml

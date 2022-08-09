@@ -1,4 +1,6 @@
 # Byte-compiled / optimized / DLL files
+.DS_Store
+
 __pycache__/
 *.py[cod]
 *$py.class
@@ -63,7 +65,7 @@ db.sqlite3-journal
 
 # Flask stuff:
 instance/
-.webassets-cache
+.webasseco-cache
 
 # Scrapy stuff:
 .scrapy

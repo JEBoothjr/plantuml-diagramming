@@ -1,0 +1,36 @@
+@startuml
+!include http://host.docker.internal:8000/sequence_lib.puml
+
+title "Example - Sequence"
+footer Last Updated: 8/11/2022
+
+EventBridge(EventBridge, "example-rule")
+StepFunction(StepFunction, "example-step-function")
+Lambda(CompaniesLambda, "companies-lambda")
+Lambda(UsersLambda, "users-lambda")
+Lambda(NotificationLambda, "notifications-lambda")
+Database(Database)
+Cloud(Slack, "Slack")
+
+EventBridge -> StepFunction : [0 9 1 * ? *]
+
+StepFunction -> CompaniesLambda
+    CompaniesLambda -> Database : <READ:companies>
+    CompaniesLambda <- Database : [ companies ]
+StepFunction <- CompaniesLambda : [ companies ]
+
+loop companies
+    StepFunction -> UsersLambda
+        UsersLambda -> Database : <READ:users>
+        UsersLambda <- Database : [ users ]
+    StepFunction <- UsersLambda : [ users ]
+
+    loop all users in company
+        StepFunction -> NotificationLambda
+            NotificationLambda -> Slack
+            NotificationLambda <- Slack
+        StepFunction <- NotificationLambda
+    end
+end
+
+@enduml

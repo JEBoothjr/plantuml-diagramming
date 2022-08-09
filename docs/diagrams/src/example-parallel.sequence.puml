@@ -1,0 +1,21 @@
+@startuml
+!include http://host.docker.internal:8000/sequence_lib.puml
+
+title "Example REST - Sequence"
+footer Last Updated: 8/11/2022
+
+Lambda(CompaniesLambda, "companies-lambda")
+Lambda(UsersLambda, "users-lambda")
+Database(Database, "Database")
+
+CompaniesLambda -> Database : <READ:companies>
+CompaniesLambda <- Database : [ companies ]
+ 
+par companies
+   CompaniesLambda -> UsersLambda
+       UsersLambda -> Database : <READ:users>
+       UsersLambda <- Database : [ users ]
+   CompaniesLambda <- UsersLambda
+end
+ 
+@enduml

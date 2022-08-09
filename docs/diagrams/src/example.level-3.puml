@@ -1,0 +1,41 @@
+@startuml
+!include http://host.docker.internal:8000/level_lib.puml
+
+title "Example - Level 3"
+footer Last Updated: 8/11/2022
+
+EventBridge(EventBridge, "example-rule", "[0 9 1 * ? *]")
+StepFunction(StepFunction, "example-step-function")
+Database(Database, "Database")
+Cloud(Slack, "Slack")
+Peering(DatabasePeering, "auxiliary-to-Database")
+
+!$AZs = { "list": [
+        { "name": "us-west-2a", "value": "10.49.96.0/20" },
+        { "name": "us-west-2b", "value": "10.49.128.0/20" },
+        { "name": "us-west-2c", "value": "10.49.160.0/20" }
+    ]
+}
+
+VPC("Auxiliary", "10.49.0.0/16") {
+    SecurityGroup(AuxSG, "co-{ENV}-lambda-sg") {
+        AvailabilityZones(AZs, $AZs) {
+            Lambda(NotificationsLambda, "notifications-lambda")
+
+            Lambda(UsersLambda, "users-lambda")
+
+            Lambda(CompaniesLambda, "companies-lambda")
+        }
+    }
+}
+
+EventBridge -down-> StepFunction
+StepFunction -down-> NotificationsLambda
+StepFunction -down-> UsersLambda
+StepFunction -down-> CompaniesLambda
+UsersLambda -down-> DatabasePeering
+CompaniesLambda -down-> DatabasePeering
+DatabasePeering -down-> Database
+NotificationsLambda -down-> Slack
+
+@enduml

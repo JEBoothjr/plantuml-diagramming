@@ -1,0 +1,132 @@
+@startuml sequence-lib
+
+skinparam defaultTextAlignment center
+
+!$version = "v1.0.0"
+!$last_updated = "8/11/2022"
+
+' CHANGELOG
+' v1.0.0
+' 8/11/2022
+
+!function $formatDelimited($str, $size=10)
+    ' This is a temporary catch because %splitstr has not been
+    ' released yet as of v1.2022.1
+    !return $str
+
+    !$output = ""
+    !$list = %splitstr($str, "|")
+    
+    !foreach $item in $list
+        !$output = $output + "<font:monospaced><plain><size:" + $size + ">" + $item + "</size></plain></font>\n"
+    !endfor
+    !$output = %substr($output, 0, %strlen($output)-2)
+
+    !return $output
+!endfunction
+
+' Actor
+!procedure Actor($id, $type)
+    actor "<size:18><b>$type</b></size>" as $id
+!endprocedure
+
+' Cloud
+!procedure Cloud($id, $type, $label, $meta)
+    Generic($id, $type, $label, $meta)
+!endprocedure
+!procedure Cloud($id, $type, $label)
+    Generic($id, $type, $label)
+!endprocedure
+!procedure Cloud($id, $type)
+    Generic($id, $type)
+!endprocedure
+
+' Database
+!procedure Database($id, $type, $label, $meta)
+    database "<size:18><b>$type</b></size>\n----\n<font:monospaced><size:15>$label</size></font>\n$formatDelimited($meta)" as $id
+!endprocedure
+!procedure Database($id, $type, $label)
+    database "<size:18><b>$type</b></size>\n----\n<font:monospaced><size:15>$label</size></font>" as $id
+!endprocedure
+!procedure Database($id, $type="Database")
+    database "<size:18><b>$type</b></size>" as $id
+!endprocedure
+
+' ECS
+!procedure ECS($id, $label, $meta)
+    Generic($id, "ECS", $label, $meta)
+!endprocedure
+!procedure ECS($id, $label)
+    Generic($id, "ECS", $label)
+!endprocedure
+!procedure ECS($id)
+    Generic($id, "ECS")
+!endprocedure
+
+' EventBridge
+!procedure EventBridge($id, $label, $meta)
+    Generic($id, "EventBridge", $label, $meta)
+!endprocedure
+!procedure EventBridge($id, $label)
+    Generic($id, "EventBridge", $label)
+!endprocedure
+!procedure EventBridge($id)
+    Generic($id, "EventBridge")
+!endprocedure
+
+' Generic
+!procedure Generic($id, $type, $label, $meta)
+    participant "<size:18><b>$type</b></size>\n----\n<font:monospaced><size:15>$label</size></font>\n$formatDelimited($meta)" as $id
+!endprocedure
+!procedure Generic($id, $type, $label)
+    participant "<size:18><b>$type</b></size>\n----\n<font:monospaced><size:15>$label</size></font>" as $id
+!endprocedure
+!procedure Generic($id, $type)
+    participant "<size:18><b>$type</b></size>" as $id
+!endprocedure
+
+' Lambda
+!procedure Lambda($id, $label, $meta)
+    Generic($id, "Lambda", $label, $meta)
+!endprocedure
+!procedure Lambda($id, $label)
+    Generic($id, "Lambda", $label)
+!endprocedure
+!procedure Lambda($id)
+    Generic($id, "Lambda")
+!endprocedure
+
+' S3
+!procedure S3($id, $label, $meta)
+    Generic($id, "S3", $label, $meta)
+!endprocedure
+!procedure S3($id, $label)
+    Generic($id, "S3", $label)
+!endprocedure
+!procedure S3($id)
+    Generic($id, "S3")
+!endprocedure
+
+' SSM
+!procedure SSM($id, $label, $meta)
+    Generic($id, "SSM", $label, $meta)
+!endprocedure
+!procedure SSM($id, $label)
+    Generic($id, "SSM", $label)
+!endprocedure
+!procedure SSM($id)
+    Generic($id, "SSM")
+!endprocedure
+
+' StepFunction
+!procedure StepFunction($id, $label, $meta)
+    Generic($id, "StepFunction", $label, $meta)
+!endprocedure
+!procedure StepFunction($id, $label)
+    Generic($id, "StepFunction", $label)
+!endprocedure
+!procedure StepFunction($id)
+    Generic($id, "StepFunction")
+!endprocedure
+
+@enduml

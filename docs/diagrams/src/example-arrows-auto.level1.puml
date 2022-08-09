@@ -1,0 +1,18 @@
+@startuml
+!include http://host.docker.internal:8000/level_lib.puml
+
+title "Example REST - Sequence"
+footer Last Updated: 8/11/2022
+
+Actor(User, "User")
+Generic(RESTService1, "REST Service 1")
+Generic(RESTService2, "REST Service 2")
+Generic(RESTService3, "REST Service 3")
+Generic(RESTService4, "REST Service 4")
+
+User -> RESTService1
+User -> RESTService2
+User -> RESTService3
+User -> RESTService4
+ 
+@enduml
