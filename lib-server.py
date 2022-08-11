@@ -1,7 +1,9 @@
+import os
 import sys
 import http.server
 import socketserver
 
+os.chdir("libraries")
 
 PORT = 8000
 if len(sys.argv) > 1:
@@ -15,3 +17,4 @@ try:
         httpd.serve_forever()
 except KeyboardInterrupt:
     print(" Killing Server...")
+    

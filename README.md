@@ -60,7 +60,7 @@ In a new terminal and from the root of the repository, run the following to star
 
 In a new terminal and from the root of the repository, run the following to start the PlantUML library server and then access the server on port `8000`.
 
-> pushd ./libraries; python3 ../lib-server.py 8000
+> python3 lib-server.py 8000
 
 > http://localhost:8000
 
