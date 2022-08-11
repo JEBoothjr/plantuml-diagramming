@@ -424,20 +424,20 @@ StepFunction(StepFunction, "example-step-function")
 Lambda(CompaniesLambda, "companies-lambda")
 Lambda(UsersLambda, "users-lambda")
 Lambda(NotificationLambda, "notifications-lambda")
-Database(Atlas)
+Database(Database)
 Cloud(Slack, "Slack")
 
 EventBridge -> StepFunction : [0 9 1 * ? *]
 
 StepFunction -> CompaniesLambda
-    CompaniesLambda -> Atlas : <READ:companies>
-    CompaniesLambda <- Atlas : [ companies ]
+    CompaniesLambda -> Database : <READ:companies>
+    CompaniesLambda <- Database : [ companies ]
 StepFunction <- CompaniesLambda : [ companies ]
 
 loop companies
     StepFunction -> UsersLambda
-        UsersLambda -> Atlas : <READ:users>
-        UsersLambda <- Atlas : [ users ]
+        UsersLambda -> Database : <READ:users>
+        UsersLambda <- Database : [ users ]
     StepFunction <- UsersLambda : [ users ]
 
     loop all users in company
@@ -487,15 +487,15 @@ footer 8/11/2022 \nLibrary: $version\n PlantUML: %version()
 
 Lambda(CompaniesLambda, "companies-lambda")
 Lambda(UsersLambda, "users-lambda")
-Database(Atlas, "Atlas")
+Database(Database, "Database")
 
-CompaniesLambda -> Atlas : <READ:companies>
-CompaniesLambda <- Atlas : [ companies ]
+CompaniesLambda -> Database : <READ:companies>
+CompaniesLambda <- Database : [ companies ]
  
 par companies
    CompaniesLambda -> UsersLambda
-       UsersLambda -> Atlas : <READ:users>
-       UsersLambda <- Atlas : [ users ]
+       UsersLambda -> Database : <READ:users>
+       UsersLambda <- Database : [ users ]
    CompaniesLambda <- UsersLambda
 end
  
