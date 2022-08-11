@@ -2,7 +2,9 @@
 
 The purpose of this document is to provide an overview for using PlantUML as an efficient method for generating architecture diagrams. It intentionally forgoes some standard diagramming styles in favor of efficiency.
 
-Please visit the official PlantUML documentation: https://plantuml.com
+Please visit the official PlantUML documentation:
+
+> https://plantuml.com
 
 # Setup
 
