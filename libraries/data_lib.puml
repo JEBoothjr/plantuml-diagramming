@@ -2,12 +2,16 @@
 
 !include http://host.docker.internal:8000/constants_lib.puml
 
-!$version = "v1.0.0"
-!$last_updated = "8/11/2022"
+!$version = "v2.0.0"
+!$last_updated = "8/30/2022"
 
 ' CHANGELOG
-' v1.0.0
+' v2.0.0
 ' 8/31/2022
+' Rebuilt how data renders
+
+' v1.0.0
+' 8/11/2022
 
 
 !procedure PrimaryKey($name, $type)
