@@ -1,12 +1,29 @@
 @startuml flow-lib
 
+!include http://host.docker.internal:8000/constants_lib.puml
+
 !$version = "v1.0.0"
-!$last_updated = "8/11/2022"
+!$last_updated = "6/16/2022"
 
 ' CHANGELOG
 ' v1.0.0
-' 8/11/2022
+' 6/16/2022
+' Initial Release
 
+!procedure Start()
+  rectangle Start $START_GREEN
+!endprocedure
 
+!procedure Decision($id, $COLOR=$YELLOW)
+  rectangle $id $COLOR
+!endprocedure
+
+!procedure Process($id, $COLOR=$GREEN)
+  rectangle $id $COLOR
+!endprocedure
+
+!procedure End($id, $COLOR=$RED)
+  rectangle $id $COLOR
+!endprocedure
 
 @enduml

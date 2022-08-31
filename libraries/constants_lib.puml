@@ -1,0 +1,40 @@
+@startuml constants-lib
+
+!$version = "v1.0.0"
+!$last_updated = "6/16/2022"
+
+' CHANGELOG
+' v1.0.0
+' 6/16/2022
+' Initial Release
+
+' https://htmlcolorcodes.com
+!$START_GREEN = "#00FF00"
+!$RED = "#E6B0AA"
+!$ORANGE = "#F5CBA7"
+!$YELLOW = "#F9E79F"
+!$GREEN = "#ABEBC6"
+!$BLUE = "#AED6F1 "
+!$PURPLE = "#D7BDE2"
+
+!$ABOVE = "top"
+!$BELOW = "bottom"
+
+!$UP = "top"
+!$DOWN = "bottom"
+!$LEFT = "left"
+!$RIGHT = "right"
+
+' DATA
+!$TABLE = "#ABEBC6"
+!$COLUMN = "#BFC9CA"
+!$METHOD = "#BFC9CA"
+!$FUNCTION = "#BFC9CA"
+
+!$COLLECTION = "#ABEBC6"
+!$FIELD = "#BFC9CA"
+
+!$PRIMARY_KEY = "#F8C471"
+!$FOREIGN_KEY = "#95A5A6"
+
+@enduml

@@ -7,12 +7,20 @@
 ' v1.0.0
 ' 8/11/2022
 
-!procedure PrimaryKey($name, $type)
+!procedure PrimaryKeyIcon($name, $type)
     <color:#b8861b><&key></color> <b>$name</b> => $type
 !endprocedure
 
-!procedure ForeignKey($name, $type)
+!procedure PrimaryKey($name, $type)
+    $name => $type
+!endprocedure
+
+!procedure ForeignKeyIcon($name, $type)
     <color:#aaaaaa><&key></color> <b>$name</b> => $type
+!endprocedure
+
+!procedure ForeignKey($name, $type)
+    $name => $type
 !endprocedure
 
 ' SQL
@@ -29,8 +37,12 @@
     map "<size:15><b>$name</b></size>" as $name
 !endprocedure
 
-!procedure Field($name, $type)
+!procedure FieldIcon($name, $type)
     <color:#efefef><&media-record></color> $name => $type
+!endprocedure
+
+!procedure Field($name, $type)
+    $name => $type
 !endprocedure
 
 @enduml
