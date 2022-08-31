@@ -1,48 +1,55 @@
 @startuml data-lib
 
+!include http://host.docker.internal:8000/constants_lib.puml
+
 !$version = "v1.0.0"
 !$last_updated = "8/11/2022"
 
 ' CHANGELOG
 ' v1.0.0
-' 8/11/2022
+' 8/31/2022
 
-!procedure PrimaryKeyIcon($name, $type)
-    <color:#b8861b><&key></color> <b>$name</b> => $type
-!endprocedure
 
 !procedure PrimaryKey($name, $type)
-    $name => $type
-!endprocedure
-
-!procedure ForeignKeyIcon($name, $type)
-    <color:#aaaaaa><&key></color> <b>$name</b> => $type
+    {field}<color:$PRIMARY_KEY><&key></color> <b>$name</b> : $type
 !endprocedure
 
 !procedure ForeignKey($name, $type)
-    $name => $type
+    {field}<color:$FOREIGN_KEY><&key></color> <b>$name</b> : $type
 !endprocedure
 
 ' SQL
-!procedure Table($name)
-    map "<size:15><b>$name</b></size>" as $name
+!procedure Table($name, desc="")
+    class $name << (T, $TABLE) >>
 !endprocedure
 
 !procedure Column($name, $type)
-    <color:#efefef><&media-record></color> $name => $type
+    {field}<color:$COLUMN><&media-record></color> <b>$name</b> : $type
+!endprocedure
+
+!procedure Method($name, $type="")
+    !if ($type == "")
+        {method}<color:$METHOD><&caret-right></color> <b>$name()</b>
+    !else
+        {method}<color:$METHOD><&caret-right></color> <b>$name()</b> : $type
+    !endif
+!endprocedure
+
+!procedure Function($name, $type="")
+    !if ($type == "")
+        {method}<color:$METHOD><&caret-right></color> <b>$name()</b>
+    !else
+        {method}<color:$METHOD><&caret-right></color> <b>$name()</b> : $type
+    !endif
 !endprocedure
 
 ' NoSQL
 !procedure Collection($name)
-    map "<size:15><b>$name</b></size>" as $name
-!endprocedure
-
-!procedure FieldIcon($name, $type)
-    <color:#efefef><&media-record></color> $name => $type
+    class $name << (T, $COLLECTION) >>
 !endprocedure
 
 !procedure Field($name, $type)
-    $name => $type
+    {field}<color:$FIELD><&media-record></color> <b>$name</b> : $type
 !endprocedure
 
 @enduml
