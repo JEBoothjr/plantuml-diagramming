@@ -1,29 +1,29 @@
 @startuml
 !include http://host.docker.internal:8000/data_lib.puml
 
-title "Example - Data"
+title "Collections Example - Data"
 footer Last Updated: 8/11/2022
 
-Collection( tlcs ) {
+Collection( organizations ) {
   PrimaryKey( _id, objectId )
   Field( name, string )
-  ForeignKey( companies, array[companies._id] )
+  ForeignKey( team_ids, array[teams._id] )
   Field( created_at, timestamp )
   Field( updated_at, timestamp )
 }
 
-Collection( companies ) {
+Collection( teams ) {
   PrimaryKey( _id, objectId )
-  ForeignKey( tlc, tlcs._id )
+  ForeignKey( organization_id, organizations._id )
   Field( name, string )
-  ForeignKey( users, array[users._id] )
+  ForeignKey( user_ids, array[users._id] )
   Field( created_at, timestamp )
   Field( updated_at, timestamp )
 }
 
 Collection( users ) {
   PrimaryKey( _id, objectId )
-  ForeignKey( tlc, tlcs._id )
+  ForeignKey( organization_id, organizations._id )
   Field( first_name, string )
   Field( last_name, string )
   Field( email, string )
@@ -32,9 +32,9 @@ Collection( users ) {
   Field( updated_at, timestamp )
 }
 
-tlcs::companies -> companies::_id
-companies::tlc -> tlcs::_id
-companies::users -> users::_id
-users::tlc -> tlcs::_id
+organizations::team_ids -> teams::_id
+teams::organization_id -> organizations::_id
+teams::user_ids -> users::_id
+users::organization_id -> organizations::_id
 
 @enduml

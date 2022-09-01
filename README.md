@@ -53,6 +53,10 @@ In addition to the server, this repository includes libraries that assist in the
 In a new terminal and from the root of the repository, run the following to start the PlantUML server and then access the server on port `8080`.
 
 > docker run -p 8080:8080 plantuml/plantuml-server:tomcat-v1.2022.6
+>
+>OR
+>
+> sh plantuml.sh
 
 > http://localhost:8080
 
@@ -61,6 +65,10 @@ In a new terminal and from the root of the repository, run the following to star
 In a new terminal and from the root of the repository, run the following to start the PlantUML library server and then access the server on port `8000`.
 
 > python3 lib-server.py 8000
+>
+> OR
+>
+> sh libs.sh
 
 > http://localhost:8000
 

@@ -1,6 +1,7 @@
 @startuml data-lib
 
 !include http://host.docker.internal:8000/constants_lib.puml
+!include http://host.docker.internal:8000/utils_lib.puml
 
 !$version = "v2.0.0"
 !$last_updated = "8/30/2022"
@@ -24,7 +25,7 @@
 
 ' SQL
 !procedure Table($name, desc="")
-    class $name << (T, $TABLE) >>
+    class $name << (T, $TABLE) >> #header:$removeColorHash($TABLE)
 !endprocedure
 
 !procedure Column($name, $type)
@@ -49,7 +50,7 @@
 
 ' NoSQL
 !procedure Collection($name)
-    class $name << (T, $COLLECTION) >>
+    class $name << (C, $COLLECTION) >> #header:$removeColorHash($COLLECTION)
 !endprocedure
 
 !procedure Field($name, $type)

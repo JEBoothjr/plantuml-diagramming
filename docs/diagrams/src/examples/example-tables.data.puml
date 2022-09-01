@@ -1,0 +1,40 @@
+@startuml
+!include http://host.docker.internal:8000/data_lib.puml
+
+title "Tables Example - Data"
+footer Last Updated: 8/11/2022
+
+Table( organizations ) {
+  PrimaryKey( id, int )
+  Column( name, "varchar(255)" )
+  ForeignKey( team_ids, int[] )
+  Column( created_at, timestamp )
+  Column( updated_at, timestamp )
+}
+
+Table( teams ) {
+  PrimaryKey( id, int )
+  ForeignKey( organization_id, int )
+  Column( name, "varchar(255)" )
+  ForeignKey( user_ids, int[] )
+  Column( created_at, timestamp )
+  Column( updated_at, timestamp )
+}
+
+Table( users ) {
+  PrimaryKey( id, int )
+  ForeignKey( organization_id, int )
+  Column( first_name, "varchar(255)" )
+  Column( last_name, "varchar(255)" )
+  Column( email, "varchar(255)" )
+  Column( password, "varchar(255)" )
+  Column( created_at, timestamp )
+  Column( updated_at, timestamp )
+}
+
+organizations::team_ids -> teams::id
+teams::organization_id -> organizations::id
+teams::user_ids -> users::id
+users::organization_id -> organizations::id
+
+@enduml

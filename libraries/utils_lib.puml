@@ -1,0 +1,15 @@
+@startuml utils-lib
+
+!$version = "v1.0.0"
+!$last_updated = "9/1/2022"
+
+' CHANGELOG
+' v1.0.0
+' 9/1/2022
+
+' Some color references can't have the has in them, so this removes it.
+!function $removeColorHash($hexcolor)
+    !return %substr($hexcolor, 1, %strlen($hexcolor))
+!endfunction
+
+@enduml
