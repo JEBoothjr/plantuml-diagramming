@@ -3,10 +3,14 @@
 !include http://host.docker.internal:8000/constants_lib.puml
 !include http://host.docker.internal:8000/utils_lib.puml
 
-!$version = "v2.0.0"
-!$last_updated = "8/30/2022"
+!$version = "v2.0.1"
+!$last_updated = "9/1/2022"
 
 ' CHANGELOG
+' v2.0.1
+' 9/1/2022
+' Tweaked data rendering
+
 ' v2.0.0
 ' 8/31/2022
 ' Rebuilt how data renders
