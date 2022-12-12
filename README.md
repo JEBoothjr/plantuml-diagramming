@@ -148,7 +148,7 @@ The include files should not exist locally. We want to be able to add to and imp
 The above diagram would generate a file named `my-system.level-0.png` that would render as follows:
 
 <p align="center">
-  <img src="./docs/diagrams/out/my-system.level-0.png"/>
+  <img src="./docs/diagrams/out/examples/my-system.level-0.png"/>
 </p>
 
 # Libraries
@@ -173,7 +173,7 @@ Each component in the library supports 4 properties:
 Below shows how each property is rendered:
 
 <p align="center">
-  <img src="./docs/diagrams/out/my-system.level-1.png"/>
+  <img src="./docs/diagrams/out/examples/my-system.level-1.png"/>
 </p>
 
 Here is the corresponding .puml file for it:
@@ -231,7 +231,7 @@ EventBridge(MyGenericService3, "my-custom-rule", "[0 9 1 * ? *]")
 The above diagram is a level diagram. By simply changing line 2 to reference the sequence library - `!include http://host.docker.internal:8000/sequence_lib.puml`, we change the rendering:
 
 <p align="center">
-  <img src="./docs/diagrams/out/my-system.sequence.png"/>
+  <img src="./docs/diagrams/out/examples/my-system.sequence.png"/>
 </p>
 
 # Creating a Diagram
@@ -243,7 +243,7 @@ The diagram types that are current supported in this spec include level-1, level
 The syntax for the library components for level and sequence diagrams are identical, however, there are some subtle differences in the diagrams. The main difference in diagrams is the arrows. You can use the same -> arrows, however, GraphViz will attempt to automatically position you components. For more control, you can use -up-> -down-> -left-> -right->. The diagram below was created using the same -> arrow for all connections.
 
 <p align="center">
-  <img src="./docs/diagrams/out/example-arrows-auto.level1.png"/>
+  <img src="./docs/diagrams/out/examples/example-arrows-auto.level1.png"/>
 </p>
 
 ```
@@ -270,7 +270,7 @@ User -> RESTService4
 Here is the same components using different arrows for better positioning:
 
 <p align="center">
-  <img src="./docs/diagrams/out/example-arrows-manual.level1.png"/>
+  <img src="./docs/diagrams/out/examples/example-arrows-manual.level1.png"/>
 </p>
 
 ```
@@ -299,7 +299,7 @@ User -left-> RESTService4
 Level 1 is a high-level view of your service intended to give the viewer a quick overview of the main components of the system and how they are connected. It needs to quickly show how the system is invoked (api, cron, etc), the primary system types in the service (ECS, lambda, etc) as well as external components are involved (database, integration service, vendor, etc). This diagram should be quick and simple. If the system uses ECS and 10 lambdas that connect to the database, simply show one ECS reference, one lambda reference and who calls the database. At this level, we don't need to know networking or the security if the service. Further details can be found in level 3.
 
 <p align="center">
-  <img src="./docs/diagrams/out/example.level-1.png"/>
+  <img src="./docs/diagrams/out/examples/example.level-1.png"/>
 </p>
 
 ```
@@ -328,7 +328,7 @@ Lambda -down-> Slack
 Level 2, shows how your system communicates to each individual AWS services. For example, show communication to lambda, in general. If your system uses 10 lambdas, show and label each of them. This level (and sequence) is the most useful for Engineering as it shows all of the individual components used in the service allowing them to quickly understand all of the moving parts of the system. At this level, we don't need to know networking or the security if the service. Further details can be found in level 3.
 
 <p align="center">
-  <img src="./docs/diagrams/out/example.level-2.png"/>
+  <img src="./docs/diagrams/out/examples/example.level-2.png"/>
 </p>
 
 ```
@@ -362,7 +362,7 @@ NotificationsLambda -down-> Slack
 Level 3 is the most detailed. It should show detailed networking including vpc, availability zones, security groups, peering connections, etc. We should be able to see what ports are open, determine security risks, etc. This level is the most useful for Security and Ops as it shows all of the individual components used in the service allowing them to quickly understand all of the networking and security of the system.
 
 <p align="center">
-  <img src="./docs/diagrams/out/example.level-3.png"/>
+  <img src="./docs/diagrams/out/examples/example.level-3.png"/>
 </p>
 
 ```
@@ -419,7 +419,7 @@ A few things to note about this diagram:
 * It is mostly a happy path only. The majority of error handling isn’t shown. Additional error handling could be shown in the diagram, however, to ensure that the system is fully thought out.
 
 <p align="center">
-  <img src="./docs/diagrams/out/example.sequence.png"/>
+  <img src="./docs/diagrams/out/examples/example.sequence.png"/>
 </p>
 
 ```
@@ -485,7 +485,7 @@ In addition to loop, which is built into PlantUML and not a part of the librarie
 The following diagram shows the companies-lambda looping through all of the companies and making parallel invocations of the users-lambda.
 
 <p align="center">
-  <img src="./docs/diagrams/out/example-parallel.sequence.png"/>
+  <img src="./docs/diagrams/out/examples/example-parallel.sequence.png"/>
 </p>
 
 ```
@@ -517,7 +517,7 @@ end
 The following diagram shows both the success and error during a login. If the login is successful, the response is a 302 that redirects to the application page. If the login fails, the service responds with a 401.
 
 <p align="center">
-  <img src="./docs/diagrams/out/example-ifelse.sequence.png"/>
+  <img src="./docs/diagrams/out/examples/example-ifelse.sequence.png"/>
 </p>
 
 ```
@@ -547,7 +547,7 @@ end
 In the case of a REST API, the request should show the method and endpoint. For responses, the values are handled similar to a database query, referencing an array of data or a single object. Additionally, an HTTP response code can be used.
 
 <p align="center">
-  <img src="./docs/diagrams/out/example-rest.sequence.png"/>
+  <img src="./docs/diagrams/out/examples/example-rest.sequence.png"/>
 </p>
 
 ```
@@ -584,7 +584,7 @@ Foreign keys should reference the collection dot the key
 Arrows should point to the collection/table that is referenced.
 
 <p align="center">
-  <img src="./docs/diagrams/out/example.data.png"/>
+  <img src="./docs/diagrams/out/examples/example.data.png"/>
 </p>
 
 ```
