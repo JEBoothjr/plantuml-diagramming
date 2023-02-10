@@ -57,8 +57,10 @@ In a new terminal and from the root of the repository, run the following to star
 >OR
 >
 > sh plantuml.sh
-
+>
 > http://localhost:8080
+>
+> lsof -i :8080
 
 ### Start the PlantUML Library Server
 
@@ -69,8 +71,16 @@ In a new terminal and from the root of the repository, run the following to star
 > OR
 >
 > sh libs.sh
-
+>
 > http://localhost:8000
+>
+> lsof -i :8000
+
+### Start both servers at the same time
+
+In a new terminal and from the root of the repository, run the following to start both of the servers at the same time. Both will exit with `ctrl+c`.
+
+> sh start.sh
 
 ## Examples
 
