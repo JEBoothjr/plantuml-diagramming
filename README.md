@@ -33,7 +33,8 @@ The recommended VS Code PlantUML extension user/workspace settings are shown bel
     "plantuml.exportSubFolder": false,
     "plantuml.server": "http://localhost:8080",
     "plantuml.render": "PlantUMLServer",
-    "plantuml.urlResult": "MarkDown"
+    "plantuml.urlResult": "MarkDown",
+    "plantuml.exportIncludeFolderHeirarchy": false
     }
 }
 ```
