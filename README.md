@@ -12,6 +12,14 @@ Please visit the official PlantUML documentation:
 
 The VS Code extension uses either a PlantUML server or a local version of the PlantUML .jar file. This repository includes everything necessary to run a PlantUML server in Docker, eliminating the need to install PlantUML, Graphviz and Java.
 
+> A "hack" to preview the .puml in a new VS Code window is as follows:
+> 1. With the 1st VS Code project open, open a 2nd window w/`Cmd-Shift-N`
+> 2. Drag the folder of the files that you are editing to the new window.
+> 3. Open the file in window 2 and preview it there.
+> 4. Edit the file in window 1.
+>
+> [https://www.youtube.com/watch?v=LxRR5Cc6jwE](https://www.youtube.com/watch?v=LxRR5Cc6jwE)
+
 ### Installation
 
 In VS Code Extensions, install the PlantUML extension by jebbs.
