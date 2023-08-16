@@ -57,6 +57,11 @@
     class $name << (C, $COLLECTION) >> #header:$removeColorHash($COLLECTION)
 !endprocedure
 
+' This is to help distinguish sub documents from collections
+!procedure SubDocument($name)
+    class $name << (S, $SUB_DOCUMENT) >> #header:$removeColorHash($SUB_DOCUMENT)
+!endprocedure
+
 !procedure Field($name, $type)
     {field}<color:$FIELD><&media-record></color> <b>$name</b> : $type
 !endprocedure

@@ -7,7 +7,7 @@
 ' v1.0.0
 ' 9/1/2022
 
-' Some color references can't have the has in them, so this removes it.
+' Some color references can't have the hash in them, so this removes it.
 !function $removeColorHash($hexcolor)
     !return %substr($hexcolor, 1, %strlen($hexcolor))
 !endfunction
