@@ -5,4 +5,6 @@
 # If you start it again too soon, the port may be in use
 # Find the port using `lsof -i :8080` or `lsof -i :8000` and `kill [PORT]`
 
-(trap 'kill 0' SIGINT; sh ./libs.sh & sh ./plantuml.sh)
+SCRIPT_DIR="$( cd -- "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+(trap 'kill 0' SIGINT; sh $SCRIPT_DIR/libs.sh & sh $SCRIPT_DIR/plantuml.sh)
