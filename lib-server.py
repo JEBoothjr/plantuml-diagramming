@@ -3,7 +3,10 @@ import sys
 import http.server
 import socketserver
 
-os.chdir("libraries")
+script_path = os.path.realpath(__file__)
+parent_directory = os.path.dirname(script_path)
+
+os.chdir(parent_directory + "/libraries")
 
 PORT = 8000
 if len(sys.argv) > 1:

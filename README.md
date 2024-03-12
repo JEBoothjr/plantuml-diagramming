@@ -43,7 +43,6 @@ The recommended VS Code PlantUML extension user/workspace settings are shown bel
     "plantuml.render": "PlantUMLServer",
     "plantuml.urlResult": "MarkDown",
     "plantuml.exportIncludeFolderHeirarchy": false
-    }
 }
 ```
 
