@@ -8,7 +8,7 @@ parent_directory = os.path.dirname(script_path)
 
 os.chdir(parent_directory + "/libraries")
 
-PORT = 8000
+PORT = 6250
 if len(sys.argv) > 1:
     PORT = int(sys.argv[1])
 

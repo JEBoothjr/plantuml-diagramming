@@ -39,7 +39,7 @@ The recommended VS Code PlantUML extension user/workspace settings are shown bel
     "plantuml.lintDiagramNoName": true,
     "plantuml.previewAutoUpdate": true,
     "plantuml.exportSubFolder": false,
-    "plantuml.server": "http://localhost:8080",
+    "plantuml.server": "http://localhost:6200",
     "plantuml.render": "PlantUMLServer",
     "plantuml.urlResult": "MarkDown",
     "plantuml.exportIncludeFolderHeirarchy": false
@@ -58,31 +58,31 @@ In addition to the server, this repository includes libraries that assist in the
 
 ### Start the PlantUML Server
 
-In a new terminal and from the root of the repository, run the following to start the PlantUML server and then access the server on port `8080`.
+In a new terminal and from the root of the repository, run the following to start the PlantUML server and then access the server on port `6200`.
 
-> docker run -p 8080:8080 plantuml/plantuml-server:tomcat-v1.2022.6
+> docker run -p 6200:6200 plantuml/plantuml-server:tomcat-v1.2022.6
 >
 >OR
 >
 > sh plantuml.sh
 >
-> http://localhost:8080
+> http://localhost:6200
 >
-> lsof -i :8080
+> lsof -i :6200
 
 ### Start the PlantUML Library Server
 
-In a new terminal and from the root of the repository, run the following to start the PlantUML library server and then access the server on port `8000`.
+In a new terminal and from the root of the repository, run the following to start the PlantUML library server and then access the server on port `6250`.
 
-> python3 lib-server.py 8000
+> python3 lib-server.py 6250
 >
 > OR
 >
 > sh libs.sh
 >
-> http://localhost:8000
+> http://localhost:6250
 >
-> lsof -i :8000
+> lsof -i :6250
 
 ### Start both servers at the same time
 
@@ -136,7 +136,7 @@ Below is a typical blank level-1 diagram. The file is named my-system.level-1.pu
 
 ```
 @startuml
-!include http://host.docker.internal:8000/level_lib.puml
+!include http://host.docker.internal:6250/level_lib.puml
 
 title My System
 header Our Fabulous Product
@@ -160,7 +160,7 @@ Line 8 contains the closing tag of the diagram - @enduml
 The include files should not exist locally. We want to be able to add to and improve it over time without requiring updates to each repo. Make sure that you are using the libraries via:
 
 ```
-!include http://host.docker.internal:8000/level_lib.puml
+!include http://host.docker.internal:6250/level_lib.puml
 ```
 
 The above diagram would generate a file named `my-system.level-0.png` that would render as follows:
@@ -198,7 +198,7 @@ Here is the corresponding .puml file for it:
 
 ```
 @startuml
-!include http://host.docker.internal:8000/level_lib.puml
+!include http://host.docker.internal:6250/level_lib.puml
 
 title My System
 header Our Fabulous Product
@@ -233,7 +233,7 @@ The above diagram uses a Generic component to clearly show how the properties ar
 
 ```
 @startuml
-!include http://host.docker.internal:8000/level_lib.puml
+!include http://host.docker.internal:6250/level_lib.puml
 
 title My System
 header Our Fabulous Product
@@ -246,7 +246,7 @@ EventBridge(MyGenericService3, "my-custom-rule", "[0 9 1 * ? *]")
 @enduml
 ```
 
-The above diagram is a level diagram. By simply changing line 2 to reference the sequence library - `!include http://host.docker.internal:8000/sequence_lib.puml`, we change the rendering:
+The above diagram is a level diagram. By simply changing line 2 to reference the sequence library - `!include http://host.docker.internal:6250/sequence_lib.puml`, we change the rendering:
 
 <p align="center">
   <img src="./docs/diagrams/out/examples/my-system.sequence.png"/>
@@ -266,7 +266,7 @@ The syntax for the library components for level and sequence diagrams are identi
 
 ```
 @startuml
-!include http://host.docker.internal:8000/level_lib.puml
+!include http://host.docker.internal:6250/level_lib.puml
 
 title "Example REST - Sequence"
 footer 8/11/2022 \nLibrary: $version\n PlantUML: %version()
@@ -293,7 +293,7 @@ Here is the same components using different arrows for better positioning:
 
 ```
 @startuml
-!include http://host.docker.internal:8000/level_lib.puml
+!include http://host.docker.internal:6250/level_lib.puml
 
 title "Example REST - Sequence"
 footer 8/11/2022 \nLibrary: $version\n PlantUML: %version()
@@ -322,7 +322,7 @@ Level 1 is a high-level view of your service intended to give the viewer a quick
 
 ```
 @startuml
-!include http://host.docker.internal:8000/level_lib.puml
+!include http://host.docker.internal:6250/level_lib.puml
 
 title "Example - Level 1"
 footer 8/11/2022 \nLibrary: $version\n PlantUML: %version()
@@ -351,7 +351,7 @@ Level 2, shows how your system communicates to each individual AWS services. For
 
 ```
 @startuml
-!include http://host.docker.internal:8000/level_lib.puml
+!include http://host.docker.internal:6250/level_lib.puml
 
 title "Example - Level 2"
 footer 8/11/2022 \nLibrary: $version\n PlantUML: %version()
@@ -385,7 +385,7 @@ Level 3 is the most detailed. It should show detailed networking including vpc, 
 
 ```
 @startuml
-!include http://host.docker.internal:8000/level_lib.puml
+!include http://host.docker.internal:6250/level_lib.puml
 
 title "Example - Level 3"
 footer 8/11/2022 \nLibrary: $version\n PlantUML: %version()
@@ -442,7 +442,7 @@ A few things to note about this diagram:
 
 ```
 @startuml
-!include http://host.docker.internal:8000/sequence_lib.puml
+!include http://host.docker.internal:6250/sequence_lib.puml
 
 title "Example - Sequence"
 footer 8/11/2022 \nLibrary: $version\n PlantUML: %version()
@@ -508,7 +508,7 @@ The following diagram shows the companies-lambda looping through all of the comp
 
 ```
 @startuml
-!include http://host.docker.internal:8000/sequence_lib.puml
+!include http://host.docker.internal:6250/sequence_lib.puml
 
 title "Example REST - Sequence"
 footer 8/11/2022 \nLibrary: $version\n PlantUML: %version()
@@ -540,7 +540,7 @@ The following diagram shows both the success and error during a login. If the lo
 
 ```
 @startuml
-!include http://host.docker.internal:8000/sequence_lib.puml
+!include http://host.docker.internal:6250/sequence_lib.puml
 
 title "Example If/Else - Sequence"
 footer 8/11/2022 \nLibrary: $version\n PlantUML: %version()
@@ -570,7 +570,7 @@ In the case of a REST API, the request should show the method and endpoint. For 
 
 ```
 @startuml
-!include http://host.docker.internal:8000/sequence_lib.puml
+!include http://host.docker.internal:6250/sequence_lib.puml
 
 title "Example REST - Sequence"
 footer 8/11/2022 \nLibrary: $version\n PlantUML: %version()
@@ -607,7 +607,7 @@ Arrows should point to the collection/table that is referenced.
 
 ```
 @startuml
-!include http://host.docker.internal:8000/data_lib.puml
+!include http://host.docker.internal:6250/data_lib.puml
 
 title "Example - Data"
 footer 8/11/2022 \nLibrary: $version\n PlantUML: %version()

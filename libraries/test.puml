@@ -1,5 +1,5 @@
 @startuml
-!include http://host.docker.internal:8000/level_lib.puml
+!include http://host.docker.internal:6250/level_lib.puml
 
 title api-gateway
 header Overview
@@ -17,7 +17,7 @@ ECS1 -down-> ECS2
 @enduml
 
 @startuml
-!include http://host.docker.internal:8000/data_lib.puml
+!include http://host.docker.internal:6250/data_lib.puml
 
 title "hey"
 header asdf

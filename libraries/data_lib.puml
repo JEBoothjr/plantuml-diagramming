@@ -1,7 +1,7 @@
 @startuml data-lib
 
-!include http://host.docker.internal:8000/constants_lib.puml
-!include http://host.docker.internal:8000/utils_lib.puml
+!include http://host.docker.internal:6250/constants_lib.puml
+!include http://host.docker.internal:6250/utils_lib.puml
 
 !$version = "v2.0.1"
 !$last_updated = "9/1/2022"

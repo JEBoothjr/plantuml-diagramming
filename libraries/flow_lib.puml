@@ -1,6 +1,6 @@
 @startuml flow-lib
 
-!include http://host.docker.internal:8000/constants_lib.puml
+!include http://host.docker.internal:6250/constants_lib.puml
 
 !$version = "v1.0.0"
 !$last_updated = "6/16/2022"

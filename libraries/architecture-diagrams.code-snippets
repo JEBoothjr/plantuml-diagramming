@@ -12,7 +12,7 @@
         ],
         "body": [
             "@startuml",
-            "!include http://host.docker.internal:8000/level_lib.puml",
+            "!include http://host.docker.internal:6250/level_lib.puml",
             "",
             "title \"$1\"",
             "header \"$2\"",
@@ -30,7 +30,7 @@
         ],
         "body": [
             "@startuml",
-            "!include http://host.docker.internal:8000/sequence_lib.puml",
+            "!include http://host.docker.internal:6250/sequence_lib.puml",
             "",
 			"title \"$1\"",
             "header \"$2\"",
@@ -48,7 +48,7 @@
         ],
         "body": [
             "@startuml",
-            "!include http://host.docker.internal:8000/data_lib.puml",
+            "!include http://host.docker.internal:6250/data_lib.puml",
             "",
             "title \"$1\"",
             "header \"$2\"",
