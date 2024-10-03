@@ -19,12 +19,8 @@
 ' 8/11/2022
 
 
-!procedure PrimaryKey($name, $type, $opt="")
-    !if ($opt == "composite")
-        {field}<color:$PRIMARY_KEY><&key></color> <b><i>$name:$type</i></b>
-    !else
-        {field}<color:$PRIMARY_KEY><&key></color> <b>$name</b> : $type
-    !endif
+!procedure PrimaryKey($name, $type)
+    {field}<color:$PRIMARY_KEY><&key></color> <b>$name</b> : $type
 !endprocedure
 
 !procedure ForeignKey($name, $type)
@@ -36,12 +32,8 @@
     class $name << (T, $TABLE) >> #header:$removeColorHash($TABLE)
 !endprocedure
 
-!procedure Column($name, $type, $opt="")
-    !if ($opt == "index")
-        {field}<color:$COLUMN><&magnifying-glass></color> <b>$name</b> : $type
-    !else
-        {field}<color:$COLUMN><&media-record></color> <b>$name</b> : $type
-    !endif
+!procedure Column($name, $type)
+    {field}<color:$COLUMN><&media-record></color> <b>$name</b> : $type
 !endprocedure
 
 !procedure Index($field1, $field2="", $field3="", $field4="")
