@@ -19,8 +19,12 @@
 ' 8/11/2022
 
 
-!procedure PrimaryKey($name, $type)
-    {field}<color:$PRIMARY_KEY><&key></color> <b>$name</b> : $type
+!procedure PrimaryKey($name, $type, $opt="")
+    !if ($opt == "composite")
+        {field}<color:$PRIMARY_KEY><&key></color> <b><i>$name:$type</i></b>
+    !else
+        {field}<color:$PRIMARY_KEY><&key></color> <b>$name</b> : $type
+    !endif
 !endprocedure
 
 !procedure ForeignKey($name, $type)
@@ -28,13 +32,22 @@
 !endprocedure
 
 ' SQL
-!procedure Table($name, desc="")
+!procedure Table($name, $desc="")
     class $name << (T, $TABLE) >> #header:$removeColorHash($TABLE)
 !endprocedure
 
-!procedure Column($name, $type)
-    {field}<color:$COLUMN><&media-record></color> <b>$name</b> : $type
+!procedure Column($name, $type, $opt="")
+    !if ($opt == "index")
+        {field}<color:$COLUMN><&magnifying-glass></color> <b>$name</b> : $type
+    !else
+        {field}<color:$COLUMN><&media-record></color> <b>$name</b> : $type
+    !endif
 !endprocedure
+
+!procedure Index($field1, $field2="", $field3="", $field4="")
+    {method}<color:$INDEX><&magnifying-glass></color> <b>$field1 $field2 $field3 $field4</b>
+!endprocedure
+
 
 !procedure Method($name, $type="")
     !if ($type == "")
@@ -46,9 +59,9 @@
 
 !procedure Function($name, $type="")
     !if ($type == "")
-        {method}<color:$METHOD><&caret-right></color> <b>$name()</b>
+        {method}<color:$FUNCTION><&caret-right></color> <b>$name()</b>
     !else
-        {method}<color:$METHOD><&caret-right></color> <b>$name()</b> : $type
+        {method}<color:$FUNCTION><&caret-right></color> <b>$name()</b> : $type
     !endif
 !endprocedure
 

@@ -2,28 +2,36 @@
 
 !include http://host.docker.internal:6250/constants_lib.puml
 
-!$version = "v1.0.0"
-!$last_updated = "6/16/2022"
+!$version = "v1.0.1"
+!$last_updated = "9/17/2022"
+
+' scale .75
+
+hide empty description
 
 ' CHANGELOG
+' v1.0.1
+' 9/17/2024
+' Changed structure for better customization
+
 ' v1.0.0
 ' 6/16/2022
 ' Initial Release
 
-!procedure Start()
-  rectangle Start $START_GREEN
+!procedure Start($ID, $TXT, $COLOR=$START_GREEN)
+  state "  **$TXT**  " as $ID $COLOR
 !endprocedure
 
-!procedure Decision($id, $COLOR=$YELLOW)
-  rectangle $id $COLOR
+!procedure Question($ID, $TXT, $COLOR=$YELLOW)
+  state "  $TXT  " as $ID $COLOR
 !endprocedure
 
-!procedure Process($id, $COLOR=$GREEN)
-  rectangle $id $COLOR
+!procedure Answer($ID, $TXT, $COLOR=$GREEN)
+  state "  $TXT  " as $ID $COLOR
 !endprocedure
 
-!procedure End($id, $COLOR=$RED)
-  rectangle $id $COLOR
+!procedure End($ID, $TXT, $COLOR=$RED)
+  state "  $TXT  " as $ID $COLOR
 !endprocedure
 
 @enduml
