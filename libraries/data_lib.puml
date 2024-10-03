@@ -52,6 +52,10 @@
     {method}<color:$INDEX><&magnifying-glass></color> <b>$field1 $field2 $field3 $field4</b>
 !endprocedure
 
+!procedure NewIndex($field1, $field2="", $field3="", $field4="")
+    {method}<color:$NEW_INDEX><&magnifying-glass> <b>$field1 $field2 $field3 $field4</b></color>
+!endprocedure
+
 
 !procedure Method($name, $type="")
     !if ($type == "")
