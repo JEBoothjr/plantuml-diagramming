@@ -32,8 +32,20 @@
     class $name << (T, $TABLE) >> #header:$removeColorHash($TABLE)
 !endprocedure
 
+!procedure LegacyTable($name, $desc="")
+    class $name << (T, $LEGACY_TABLE) >> #header:$removeColorHash($LEGACY_TABLE)
+!endprocedure
+
 !procedure Column($name, $type)
     {field}<color:$COLUMN><&media-record></color> <b>$name</b> : $type
+!endprocedure
+
+!procedure NewColumn($name, $type)
+    {field}<color:$NEW_COLUMN><&media-record> <b>$name</b></color> : $type
+!endprocedure
+
+!procedure LegacyColumn($name, $type)
+    {field}<color:$LEGACY_COLUMN><&media-record> <b>$name</b></color> : $type
 !endprocedure
 
 !procedure Index($field1, $field2="", $field3="", $field4="")

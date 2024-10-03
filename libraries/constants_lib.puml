@@ -26,8 +26,11 @@
 !$RIGHT = "right"
 
 ' DATA
+!$LEGACY_TABLE = "#ebaeab"
 !$TABLE = "#ABEBC6"
 !$COLUMN = "#BFC9CA"
+!$NEW_COLUMN = "#1EA80F"
+!$LEGACY_COLUMN = "#A81C0F"
 !$METHOD = "#BFC9CA"
 !$FUNCTION = "#BFC9CA"
 !$INDEX = "#BFC9CA"
