@@ -28,11 +28,15 @@
 !endprocedure
 
 ' SQL
-!procedure Table($name, $desc="")
+!procedure Schema($name)
+    package "Schema: $name" <<Frame>>
+!endprocedure
+
+!procedure Table($name)
     class $name << (T, $TABLE) >> #header:$removeColorHash($TABLE)
 !endprocedure
 
-!procedure LegacyTable($name, $desc="")
+!procedure LegacyTable($name)
     class $name << (T, $LEGACY_TABLE) >> #header:$removeColorHash($LEGACY_TABLE)
 !endprocedure
 

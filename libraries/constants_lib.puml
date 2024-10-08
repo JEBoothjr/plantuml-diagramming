@@ -27,6 +27,7 @@
 
 ' DATA
 !$LEGACY_TABLE = "#ebaeab"
+!$SCHEMA = "#66CCFF"
 !$TABLE = "#ABEBC6"
 !$COLUMN = "#BFC9CA"
 !$NEW_COLUMN = "#1EA80F"
