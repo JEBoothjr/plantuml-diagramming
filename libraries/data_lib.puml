@@ -27,6 +27,14 @@
     {field}<color:$FOREIGN_KEY><&key></color> <b>$name</b> : $type
 !endprocedure
 
+!procedure NewForeignKey($name, $type)
+    {field}<color:$NEW_FOREIGN_KEY><&key> <b>$name</b></color> : $type
+!endprocedure
+
+!procedure LegacyForeignKey($name, $type)
+    {field}<color:$LEGACY_FOREIGN_KEY><&key> <b>$name</b></color> : $type
+!endprocedure
+
 ' SQL
 !procedure Schema($name)
     package "Schema: $name" <<Frame>>
@@ -46,10 +54,6 @@
 
 !procedure NewColumn($name, $type)
     {field}<color:$NEW_COLUMN><&media-record> <b>$name</b></color> : $type
-!endprocedure
-
-!procedure LegacyColumn($name, $type)
-    {field}<color:$LEGACY_COLUMN><&media-record> <b>$name</b></color> : $type
 !endprocedure
 
 !procedure Index($field1, $field2="", $field3="", $field4="")
@@ -89,6 +93,29 @@
 
 !procedure Field($name, $type)
     {field}<color:$FIELD><&media-record></color> <b>$name</b> : $type
+!endprocedure
+
+!procedure Legend()
+<style>
+legend {
+  FontSize 10
+  BackGroundColor white
+  HorizontalAlignment left
+}
+</style>
+    legend
+        <b>LEGEND</b>
+        <color:$TABLE><&media-stop></color>    Table
+        <color:$PRIMARY_KEY><&key></color>    Primary Key
+        <color:$FOREIGN_KEY><&key></color>    Foreign Key
+        <color:$COLUMN><&media-record></color>    Column
+        <color:$INDEX><&magnifying-glass></color>    Index
+
+        <color:$LEGACY_TABLE><&media-stop></color>    Legacy Table
+        <color:$LEGACY_FOREIGN_KEY><&key></color>    Legacy Foreign Key
+
+        <color:$NEW_COLUMN><&media-record></color>    New Column
+    endlegend
 !endprocedure
 
 @enduml
