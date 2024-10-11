@@ -41,10 +41,12 @@
 !endprocedure
 
 !procedure Table($name)
+    set separator none
     class $name << (T, $TABLE) >> #header:$removeColorHash($TABLE)
 !endprocedure
 
 !procedure LegacyTable($name)
+    set separator none
     class $name << (T, $LEGACY_TABLE) >> #header:$removeColorHash($LEGACY_TABLE)
 !endprocedure
 
