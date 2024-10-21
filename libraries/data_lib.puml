@@ -45,6 +45,11 @@
     class $name << (T, $TABLE) >> #header:$removeColorHash($TABLE)
 !endprocedure
 
+!procedure View($name)
+    set separator none
+    class $name << (V, $VIEW) >> #header:$removeColorHash($VIEW)
+!endprocedure
+
 !procedure LegacyTable($name)
     set separator none
     class $name << (T, $LEGACY_TABLE) >> #header:$removeColorHash($LEGACY_TABLE)
@@ -112,6 +117,7 @@ legend {
         <color:$FOREIGN_KEY><&key></color>    Foreign Key
         <color:$COLUMN><&media-record></color>    Column
         <color:$INDEX><&magnifying-glass></color>    Index
+        <color:$VIEW><&media-stop></color>    View
 
         <color:$LEGACY_TABLE><&media-stop></color>    Legacy Table
         <color:$LEGACY_FOREIGN_KEY><&key></color>    Legacy Foreign Key
