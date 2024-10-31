@@ -129,4 +129,15 @@ skinparam defaultTextAlignment center
     Generic($id, "StepFunction")
 !endprocedure
 
+' Code Library
+!procedure Library($id, $label, $meta)
+    Generic($id, "Library", $label, $meta)
+!endprocedure
+!procedure Library($id, $label)
+    Generic($id, "Library", $label)
+!endprocedure
+!procedure Library($id)
+    Generic($id, "Library")
+!endprocedure
+
 @enduml
