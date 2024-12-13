@@ -63,6 +63,10 @@
     {field}<color:$NEW_COLUMN><&media-record> <b>$name</b></color> : $type
 !endprocedure
 
+!procedure UNIQUE($field1, $field2="", $field3="", $field4="")
+    {field}<color:$INDEX><&magnifying-glass></color> <b>UNIQUE: $field1 $field2 $field3 $field4</b>
+!endprocedure
+
 !procedure Index($field1, $field2="", $field3="", $field4="")
     {method}<color:$INDEX><&magnifying-glass></color> <b>$field1 $field2 $field3 $field4</b>
 !endprocedure
